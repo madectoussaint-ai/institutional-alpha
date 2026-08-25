@@ -1,104 +1,17 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b1220">
-<title>Institutional Alpha V1</title>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09111e"><title>Institutional Alpha V1.2</title>
 <style>
-:root{--bg:#0b1220;--card:#121c2d;--card2:#172338;--text:#eef4ff;--muted:#9eabc0;--green:#39d98a;--red:#ff6b7a;--yellow:#ffd166;--blue:#66a6ff;--border:#24334d}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#09101d,#0e1727);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-.app{max-width:1100px;margin:auto;padding:18px 14px 42px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.brand{font-weight:800;font-size:20px}.sub{font-size:12px;color:var(--muted)}
-.badge{background:#182944;border:1px solid var(--border);padding:7px 10px;border-radius:999px;font-size:11px;color:#bcd4ff}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.tab{border:1px solid var(--border);background:var(--card);color:var(--muted);padding:12px;border-radius:12px;font-weight:700}.tab.active{background:#1b3152;color:white;border-color:#31598e}
-.hero{background:linear-gradient(135deg,#162944,#101a2c);border:1px solid var(--border);border-radius:18px;padding:18px;margin-bottom:12px}.hero .label{color:var(--muted);font-size:12px}.value{font-size:32px;font-weight:850;margin:4px 0}.green{color:var(--green)}.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px}.card h3{font-size:14px;margin:0 0 11px}.metric{font-size:22px;font-weight:800}.tiny{font-size:11px;color:var(--muted)}
-.list{display:flex;flex-direction:column;gap:8px}.row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:8px;background:var(--card2);border-radius:12px;padding:10px}.rank{font-weight:800;color:var(--muted)}.name{font-weight:750}.meta{font-size:11px;color:var(--muted);margin-top:2px}.score{font-weight:850}.pill{font-size:10px;padding:4px 7px;border-radius:999px;margin-left:6px}.buy{background:#123d2c;color:var(--green)}.watch{background:#423718;color:var(--yellow)}.avoid{background:#461f28;color:var(--red)}
-.section{margin:16px 0 8px;font-size:15px;font-weight:800}.filters{display:flex;gap:7px;overflow:auto;padding-bottom:3px}.filter{white-space:nowrap;border:1px solid var(--border);background:var(--card);color:var(--muted);padding:8px 10px;border-radius:10px}.filter.active{color:#fff;background:#1a2d49}
-.detail{display:none}.detail.show{display:block}.back{border:0;background:none;color:#8eb9ff;padding:0 0 12px;font-size:14px}.bar{height:7px;background:#202e43;border-radius:9px;overflow:hidden;margin-top:6px}.bar>span{display:block;height:100%;background:#66a6ff}.note{font-size:11px;color:var(--muted);line-height:1.5}
-footer{margin-top:25px;color:#718097;font-size:10px;text-align:center}
-@media(min-width:760px){.app{padding:28px}.grid{grid-template-columns:repeat(4,1fr)}.tabs{max-width:600px}.row{grid-template-columns:35px 1fr auto}}
-</style>
-</head>
-<body>
-<div class="app">
-  <div class="top">
-    <div><div class="brand">INSTITUTIONAL ALPHA</div><div class="sub">V1 · simulation pédagogique</div></div>
-    <div class="badge">10 000 € virtuels</div>
-  </div>
-
-  <div class="tabs">
-    <button class="tab active" onclick="showTab('dashboard',this)">Tableau de bord</button>
-    <button class="tab" onclick="showTab('west',this)">🌍 Occident</button>
-    <button class="tab" onclick="showTab('asia',this)">🌏 Asie</button>
-  </div>
-
-  <main id="dashboard">
-    <div class="hero"><div class="label">PORTEFEUILLE VIRTUEL</div><div class="value">10 000,00 €</div><div class="green">+0,00 % · simulation démarrée</div></div>
-    <div class="grid">
-      <div class="card"><h3>Benchmark</h3><div class="metric">S&P 500</div><div class="tiny">comparaison activée</div></div>
-      <div class="card"><h3>Positions</h3><div class="metric">0</div><div class="tiny">aucun ordre réel</div></div>
-      <div class="card"><h3>Score moyen</h3><div class="metric">88/100</div><div class="tiny">univers de démonstration</div></div>
-      <div class="card"><h3>Risque</h3><div class="metric">Modéré</div><div class="tiny">limite 5 % / ligne</div></div>
-    </div>
-    <div class="section">🔥 Global Radar</div>
-    <div id="radar" class="list"></div>
-    <div class="section">🌐 Mégatendances</div>
-    <div class="grid" id="themes"></div>
-  </main>
-
-  <main id="west" class="detail">
-    <button class="back" onclick="showTab('dashboard',document.querySelector('.tab'))">← Retour</button>
-    <div class="section">🌍 Actions Occidentales</div>
-    <div class="filters"><button class="filter active">Toutes</button><button class="filter">IA</button><button class="filter">Eau</button><button class="filter">Énergie</button><button class="filter">Défense</button></div>
-    <div id="westList" class="list"></div>
-  </main>
-
-  <main id="asia" class="detail">
-    <button class="back" onclick="showTab('dashboard',document.querySelector('.tab'))">← Retour</button>
-    <div class="section">🌏 Asie · pertinence mondiale</div>
-    <div class="card" style="margin-bottom:10px"><div class="tiny">FILTRAGE</div><div style="margin-top:4px">Le bot privilégie l'influence mondiale, la technologie, les parts de marché et la solidité financière plutôt que la seule taille locale.</div></div>
-    <div id="asiaList" class="list"></div>
-  </main>
-
-  <footer>Démo V1 · Les scores et données affichés ici sont fictifs et servent uniquement à tester l'interface. Aucun conseil financier et aucun ordre réel.</footer>
-</div>
-
-<script>
-const stocks=[
-{name:"Nvidia",ticker:"NVDA",region:"Occident",sector:"IA / semi-conducteurs",score:94,signal:"ACHAT SIMULÉ",color:"buy",reason:"Position stratégique dans l'écosystème IA et forte dynamique institutionnelle (démo)."},
-{name:"TSMC",ticker:"TSM",region:"Asie",sector:"Semi-conducteurs",score:92,signal:"ACHAT SIMULÉ",color:"buy",reason:"Rôle mondial critique dans la fabrication avancée de puces (démo)."},
-{name:"CATL",ticker:"300750.SZ",region:"Asie",sector:"Batteries / énergie",score:91,signal:"ACHAT SIMULÉ",color:"buy",reason:"Leader mondial des batteries et actif stratégique de la transition énergétique (démo)."},
-{name:"Xylem",ticker:"XYL",region:"Occident",sector:"Eau / infrastructure",score:89,signal:"ACHAT SIMULÉ",color:"buy",reason:"Exposition directe aux infrastructures de traitement et de gestion de l'eau (démo)."},
-{name:"Schneider Electric",ticker:"SU.PA",region:"Occident",sector:"Énergie / électrification",score:88,signal:"ACHAT SIMULÉ",color:"buy",reason:"Bénéficie de l'électrification, des réseaux et des data centers (démo)."},
-{name:"BYD",ticker:"1211.HK",region:"Asie",sector:"EV / batteries",score:87,signal:"SURVEILLER",color:"watch",reason:"Forte présence internationale et intégration verticale (démo)."},
-{name:"Microsoft",ticker:"MSFT",region:"Occident",sector:"Cloud / IA",score:86,signal:"SURVEILLER",color:"watch",reason:"Cloud, logiciels et infrastructures IA à grande échelle (démo)."},
-{name:"ASML",ticker:"ASML",region:"Occident",sector:"Semi-conducteurs",score:86,signal:"SURVEILLER",color:"watch",reason:"Actif industriel clé pour la lithographie avancée (démo)."},
-{name:"Tencent",ticker:"0700.HK",region:"Asie",sector:"Internet / IA",score:84,signal:"SURVEILLER",color:"watch",reason:"Écosystème numérique chinois avec forte portée régionale (démo)."},
-{name:"Alibaba",ticker:"BABA",region:"Asie",sector:"Cloud / e-commerce",score:81,signal:"SURVEILLER",color:"watch",reason:"Cloud et commerce international, avec risque réglementaire et géopolitique (démo)."},
-{name:"Ecolab",ticker:"ECL",region:"Occident",sector:"Eau / traitement",score:82,signal:"SURVEILLER",color:"watch",reason:"Solutions de gestion de l'eau et d'efficacité industrielle (démo)."},
-{name:"AMD",ticker:"AMD",region:"Occident",sector:"IA / semi-conducteurs",score:80,signal:"SURVEILLER",color:"watch",reason:"Concurrent majeur sur les accélérateurs et processeurs (démo)."}
-];
-const themes=[["🤖 IA",94],["💧 Eau",91],["⚡ Énergie",89],["☢️ Nucléaire",86],["🛡️ Défense",83],["🪙 RWA",79],["⛏️ Métaux critiques",87],["🔐 Cybersécurité",84]];
-
-function row(s,i){return `<div class="row" onclick="alert('${s.name}\\n\\nScore : ${s.score}/100\\nSignal : ${s.signal}\\n\\n${s.reason}')"><div class="rank">${i+1}</div><div><div class="name">${s.name}<span class="pill ${s.color}">${s.signal}</span></div><div class="meta">${s.ticker} · ${s.sector}</div></div><div class="score">${s.score}</div></div>`}
-function render(){
- const sorted=[...stocks].sort((a,b)=>b.score-a.score);
- document.getElementById('radar').innerHTML=sorted.slice(0,8).map(row).join('');
- document.getElementById('westList').innerHTML=sorted.filter(s=>s.region==='Occident').map(row).join('');
- document.getElementById('asiaList').innerHTML=sorted.filter(s=>s.region==='Asie').map(row).join('');
- document.getElementById('themes').innerHTML=themes.map(t=>`<div class="card"><div class="tiny">${t[0]}</div><div class="metric">${t[1]}/100</div><div class="bar"><span style="width:${t[1]}%"></span></div></div>`).join('');
-}
-function showTab(id,btn){
- document.querySelectorAll('main').forEach(x=>x.classList.remove('detail','show'));
- document.getElementById('dashboard').style.display='none';
- document.getElementById('west').style.display='none';
- document.getElementById('asia').style.display='none';
- document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
- document.getElementById(id).style.display='block';
- if(btn) btn.classList.add('active');
-}
-render(); showTab('dashboard',document.querySelector('.tab'));
-</script>
-</body>
-</html>
+body{margin:0;background:#09111e;color:#f2f6ff;font:14px system-ui}.app{max-width:900px;margin:auto;padding:16px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}.tab,.filter,button{border:1px solid #263852;background:#111c2d;color:#9cabc0;padding:10px;border-radius:10px;font-weight:700}.active{background:#1a3151!important;color:#fff}.hero,.card,.row{background:#111c2d;border:1px solid #263852;border-radius:14px;padding:13px}.hero{background:#162b49}.value{font-size:30px;font-weight:900}.green{color:#42dc91}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}.section{font-weight:900;margin:16px 0 8px}.list{display:flex;flex-direction:column;gap:7px}.row{display:grid;grid-template-columns:28px 1fr auto;gap:8px}.meta,.tiny,.note{font-size:10px;color:#9cabc0}.score{font-weight:900}.pill{font-size:9px;padding:3px 6px;border-radius:99px;margin-left:5px}.buy{background:#123d2c;color:#42dc91}.watch{background:#453917;color:#ffd166}.page{display:none}.on{display:block}.filters{display:flex;gap:6px;overflow:auto}.filters button{white-space:nowrap}.source{padding:8px 0;border-bottom:1px solid #263852;font-size:11px}.source a{color:#74adff}.method{line-height:1.5;font-size:12px;color:#c4cede}
+</style></head><body><div class="app">
+<h2>INSTITUTIONAL ALPHA <small style="color:#9cabc0">V1.2</small></h2>
+<div class="tabs"><button class="tab active" onclick="tab('home',this)">🏠 Radar</button><button class="tab" onclick="tab('west',this)">🌍 Occident</button><button class="tab" onclick="tab('asia',this)">🌏 Asie</button><button class="tab" onclick="tab('data',this)">📡 Données</button></div>
+<section id="home" class="page on"><div class="hero"><div class="tiny">PORTEFEUILLE SIMULÉ</div><div class="value">10 000 €</div><div class="green" id="status">Prêt</div><div class="tiny">Aucun ordre réel</div><button style="width:100%;margin-top:10px;background:#2d74cf;color:white;border:0" onclick="run()">▶ LANCER L'ANALYSE</button></div>
+<div class="grid"><div class="card"><div class="tiny">Entreprises</div><b id="n">12</b></div><div class="card"><div class="tiny">Signaux forts</div><b id="s">—</b></div><div class="card"><div class="tiny">Occident</div><b>6</b></div><div class="card"><div class="tiny">Asie</div><b>6</b></div></div>
+<div class="section">🔥 Global Radar</div><div id="radar" class="list"></div>
+<div class="section">🧠 Moteur</div><div class="card method">Score pédagogique : 30% convergence institutionnelle + 25% pertinence mondiale + 20% qualité + 15% thème stratégique + 10% risque géopolitique inversé.</div></section>
+<section id="west" class="page"><div class="section">🌍 Occident</div><div class="filters"><button class="filter active" onclick="f('Occident','all',this)">Toutes</button><button class="filter" onclick="f('Occident','IA',this)">IA</button><button class="filter" onclick="f('Occident','Eau',this)">Eau</button><button class="filter" onclick="f('Occident','Énergie',this)">Énergie</button></div><div id="wl" class="list"></div></section>
+<section id="asia" class="page"><div class="section">🌏 Asie · portée mondiale</div><div class="filters"><button class="filter active" onclick="f('Asie','all',this)">Toutes</button><button class="filter" onclick="f('Asie','Semi',this)">Semi</button><button class="filter" onclick="f('Asie','Énergie',this)">Énergie</button><button class="filter" onclick="f('Asie','IA',this)">IA</button></div><div id="al" class="list"></div></section>
+<section id="data" class="page"><div class="section">📡 Sources</div><div id="src" class="card"></div><div class="section">⚠️ Limites</div><div class="card note">Les holdings institutionnels sont publics mais retardés et partiels. Les ETF peuvent changer quotidiennement et les 13F sont trimestriels. Ce moteur ne reproduit pas les décisions internes.</div></section>
+</div><script>
+let D;
+async function init(){D=await (await fetch('data.json',{cache:'no-store'})).json();render()}function sc(x){let i=(x[5]+x[6]+x[7])/3*100,t=['IA','Eau','Énergie','Semi'].includes(x[4])?90:75;return Math.round(.30*i+.25*x[8]+.20*x[10]+.15*t+.10*(100-x[9]))}function row(x,i){let z=sc(x),q=z>=88?'ACHAT SIMULÉ':z>=78?'SURVEILLER':'RISQUE',c=z>=88?'buy':'watch';return `<div class=row><b>${i+1}</b><div><b>${x[0]}</b><span class="pill ${c}">${q}</span><div class=meta>${x[1]} · ${x[3]} · institutionnels ${[x[5],x[6],x[7]].filter(Boolean).length}/3</div></div><b>${z}</b></div>`}function render(){let a=[...D.stocks].sort((x,y)=>sc(y)-sc(x));document.getElementById('radar').innerHTML=a.map(row).join('');document.getElementById('wl').innerHTML=a.filter(x=>x[2]=='Occident').map(row).join('');document.getElementById('al').innerHTML=a.filter(x=>x[2]=='Asie').map(row).join('');document.getElementById('src').innerHTML=D.sources.map(x=>`<div class=source>${x[0]} · ${x[1]}<br><a href="${x[2]}" target=_blank>source officielle ↗</a></div>`).join('')}function run(){let a=D.stocks.filter(x=>sc(x)>=88);document.getElementById('s').textContent=a.length;document.getElementById('status').textContent='Analyse terminée · '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});render()}function tab(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active')}function f(r,t,b){let a=D.stocks.filter(x=>x[2]==r);if(t!='all')a=a.filter(x=>(x[3]+' '+x[4]).includes(t));document.getElementById(r=='Occident'?'wl':'al').innerHTML=a.sort((x,y)=>sc(y)-sc(x)).map(row).join('');b.parentElement.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active')}init();
+</script></body></html>

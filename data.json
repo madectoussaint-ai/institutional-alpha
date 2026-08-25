@@ -1,0 +1,183 @@
+{
+  "updated": "2026-08-24",
+  "sources": [
+    [
+      "BlackRock iShares IVV",
+      "2026-08-21",
+      "https://www.blackrock.com/us/individual/products/239726/"
+    ],
+    [
+      "BlackRock iShares ACWI",
+      "2026-08-20",
+      "https://www.blackrock.com/us/individual/products/239600/"
+    ],
+    [
+      "State Street SPDR S&P 500 UCITS ETF",
+      "2026-08-14",
+      "https://www.ssga.com/fr/fr/intermediary/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy"
+    ],
+    [
+      "SEC / Vanguard 13F",
+      "2026-06-30",
+      "https://www.sec.gov/Archives/edgar/data/102909/000010290926002714-index.htm"
+    ]
+  ],
+  "stocks": [
+    [
+      "Nvidia",
+      "NVDA",
+      "Occident",
+      "IA / semi-conducteurs",
+      "IA",
+      1,
+      1,
+      1,
+      98,
+      25,
+      94
+    ],
+    [
+      "Microsoft",
+      "MSFT",
+      "Occident",
+      "Cloud / IA",
+      "IA",
+      1,
+      1,
+      1,
+      96,
+      20,
+      94
+    ],
+    [
+      "Apple",
+      "AAPL",
+      "Occident",
+      "Technologie",
+      "IA",
+      1,
+      1,
+      1,
+      97,
+      18,
+      91
+    ],
+    [
+      "Xylem",
+      "XYL",
+      "Occident",
+      "Eau / infrastructure",
+      "Eau",
+      1,
+      1,
+      0,
+      88,
+      15,
+      88
+    ],
+    [
+      "Schneider Electric",
+      "SU.PA",
+      "Occident",
+      "Énergie / électrification",
+      "Énergie",
+      1,
+      1,
+      0,
+      94,
+      15,
+      91
+    ],
+    [
+      "ASML",
+      "ASML",
+      "Occident",
+      "Semi-conducteurs",
+      "Semi",
+      1,
+      1,
+      1,
+      98,
+      20,
+      93
+    ],
+    [
+      "TSMC",
+      "TSM",
+      "Asie",
+      "Semi-conducteurs",
+      "Semi",
+      1,
+      1,
+      1,
+      99,
+      55,
+      95
+    ],
+    [
+      "CATL",
+      "300750.SZ",
+      "Asie",
+      "Batteries / énergie",
+      "Énergie",
+      1,
+      1,
+      0,
+      96,
+      58,
+      92
+    ],
+    [
+      "BYD",
+      "1211.HK",
+      "Asie",
+      "EV / batteries",
+      "Énergie",
+      1,
+      1,
+      0,
+      95,
+      55,
+      90
+    ],
+    [
+      "Tencent",
+      "0700.HK",
+      "Asie",
+      "Internet / IA",
+      "IA",
+      1,
+      1,
+      0,
+      93,
+      60,
+      89
+    ],
+    [
+      "Alibaba",
+      "BABA",
+      "Asie",
+      "Internet / cloud",
+      "IA",
+      1,
+      1,
+      0,
+      92,
+      65,
+      84
+    ],
+    [
+      "Toyota",
+      "TM",
+      "Asie",
+      "Automobile",
+      "Industrie",
+      1,
+      1,
+      1,
+      96,
+      18,
+      90
+    ]
+  ]
+}

@@ -3,10 +3,10 @@
   "capital": 10000,
   "currency": "EUR",
   "simulation_only": true,
-  "last_market_update_utc": null,
-  "last_institutional_update_utc": null,
-  "market_data_status": "waiting_for_update",
-  "institutional_data_status": "waiting_for_update",
+  "last_market_update_utc": "2026-08-31T23:04:54+00:00",
+  "last_institutional_update_utc": "2026-08-31T23:04:56+00:00",
+  "market_data_status": "updated_12_of_12",
+  "institutional_data_status": "partial",
   "institutional_method": "SEC Form 13F latest vs previous quarter; NBIM official macro snapshot separately",
   "themes": {
     "IA": 96,
@@ -74,18 +74,19 @@
       "issuer_aliases": [
         "NVIDIA CORP"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 220.78,
+      "currency": "USD",
+      "change_1d_pct": 1.48,
+      "change_30d_pct": 9.98,
+      "momentum": 85,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "ASML",
@@ -102,18 +103,19 @@
         "ASML HOLDING N V",
         "ASML HOLDING NV"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 1696.01,
+      "currency": "USD",
+      "change_1d_pct": -0.01,
+      "change_30d_pct": 4.11,
+      "momentum": 64,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "TSMC",
@@ -130,18 +132,19 @@
         "TAIWAN SEMICONDUCTOR MFG LTD",
         "TAIWAN SEMICONDUCTOR MANUFACTURING"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 415.32,
+      "currency": "USD",
+      "change_1d_pct": -0.53,
+      "change_30d_pct": 2.74,
+      "momentum": 60,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "Microsoft",
@@ -157,18 +160,19 @@
       "issuer_aliases": [
         "MICROSOFT CORP"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 507.29,
+      "currency": "USD",
+      "change_1d_pct": -1.22,
+      "change_30d_pct": 9.16,
+      "momentum": 82,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "Apple",
@@ -184,18 +188,19 @@
       "issuer_aliases": [
         "APPLE INC"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 316.85,
+      "currency": "USD",
+      "change_1d_pct": -0.89,
+      "change_30d_pct": 2.57,
+      "momentum": 59,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "Xylem",
@@ -211,18 +216,19 @@
       "issuer_aliases": [
         "XYLEM INC"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 110.11,
+      "currency": "USD",
+      "change_1d_pct": -1.08,
+      "change_30d_pct": -5.86,
+      "momentum": 29,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "Veolia",
@@ -239,18 +245,19 @@
         "VEOLIA ENVIRONNEMENT",
         "VEOLIA"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 32.85,
+      "currency": "EUR",
+      "change_1d_pct": 0.83,
+      "change_30d_pct": -8.24,
+      "momentum": 21,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "Schneider Electric",
@@ -266,18 +273,19 @@
       "issuer_aliases": [
         "SCHNEIDER ELECTRIC"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 301.75,
+      "currency": "EUR",
+      "change_1d_pct": 1.41,
+      "change_30d_pct": 6.03,
+      "momentum": 71,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "Tencent",
@@ -293,18 +301,19 @@
       "issuer_aliases": [
         "TENCENT HOLDINGS"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 455.2,
+      "currency": "HKD",
+      "change_1d_pct": 1.65,
+      "change_30d_pct": -3.52,
+      "momentum": 38,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "BYD",
@@ -320,18 +329,19 @@
       "issuer_aliases": [
         "BYD CO"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 91.95,
+      "currency": "HKD",
+      "change_1d_pct": 0.77,
+      "change_30d_pct": -3.01,
+      "momentum": 39,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "CATL",
@@ -347,18 +357,19 @@
       "issuer_aliases": [
         "CONTEMPORARY AMPEREX"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 368.5,
+      "currency": "CNY",
+      "change_1d_pct": -1.21,
+      "change_30d_pct": -8.31,
+      "momentum": 21,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     },
     {
       "name": "Toyota",
@@ -374,18 +385,25 @@
       "issuer_aliases": [
         "TOYOTA MOTOR CORP"
       ],
-      "price": null,
-      "currency": null,
-      "change_1d_pct": null,
-      "change_30d_pct": null,
-      "momentum": 50,
-      "market_timestamp_utc": null,
+      "price": 196.54,
+      "currency": "USD",
+      "change_1d_pct": 1.06,
+      "change_30d_pct": 3.99,
+      "momentum": 64,
+      "market_timestamp_utc": "2026-08-31T23:04:54+00:00",
       "market_source": "Yahoo Finance via yfinance",
       "institutional_real_score": null,
       "institutional_coverage": 0,
       "institutional_total": 0,
       "institutional_signals": {},
-      "institutional_period": null
+      "institutional_period": null,
+      "market_error": null
     }
+  ],
+  "institutional_manager_results": {},
+  "institutional_errors": [
+    "blackrock: 403 Client Error: Forbidden for url: https://data.sec.gov/submissions/CIK0002012383.json",
+    "vanguard: 403 Client Error: Forbidden for url: https://data.sec.gov/submissions/CIK0002100119.json",
+    "statestreet: 403 Client Error: Forbidden for url: https://data.sec.gov/submissions/CIK0000093751.json"
   ]
 }

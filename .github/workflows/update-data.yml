@@ -1,9 +1,10 @@
-name: Update market data
+name: Institutional Alpha updater
 
 on:
   workflow_dispatch:
   schedule:
     - cron: "17 * * * *"
+    - cron: "31 6 * * *"
 
 permissions:
   contents: write
@@ -11,7 +12,6 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,10 +27,14 @@ jobs:
       - name: Update market data
         run: python update_data.py
 
+      - name: Update institutional data
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '31 6 * * *'
+        run: python update_institutions.py
+
       - name: Commit refreshed data
         run: |
           git config user.name "institutional-alpha-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data.json
-          git diff --cached --quiet || git commit -m "Auto-update market data"
+          git add data.json institutional_history.json
+          git diff --cached --quiet || git commit -m "Auto-update market and institutional data"
           git push

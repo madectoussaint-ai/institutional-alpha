@@ -1,0 +1,80 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f"><title>Institutional Alpha V1.7.1</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07111f;color:#f3f6fb;font:14px system-ui,-apple-system,sans-serif}.app{max-width:1080px;margin:auto;padding:16px}
+.muted,.meta,.tiny{color:#9aa9bd}.tiny{font-size:10px}.green{color:#43e09a}.yellow{color:#ffd166}.red{color:#ff8d8d}.blue{color:#69aaff}
+.tabs,.filters{display:flex;gap:6px;overflow:auto;margin:14px 0}.tab,.filter{border:1px solid #263a55;background:#101d2e;color:#aab7c9;padding:10px 9px;border-radius:11px;font-weight:850;white-space:nowrap}.active{background:#1c385d;color:#fff}
+.page{display:none}.on{display:block}.hero,.card,.row{background:#101d2e;border:1px solid #263a55;border-radius:15px;padding:13px}.hero{background:#172f51}.value{font-size:34px;font-weight:950}.action{width:100%;padding:14px;border:0;border-radius:12px;background:#2d78d4;color:white;font-weight:950;margin-top:10px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px}.metric{font-size:22px;font-weight:950}.section{font-size:18px;font-weight:950;margin:18px 0 9px}
+.row{display:grid;grid-template-columns:30px 1fr auto;gap:8px;align-items:center;margin-bottom:7px;background:#14243a}.name{font-size:16px;font-weight:950}.score{font-size:19px}.pill{font-size:9px;padding:3px 7px;border-radius:99px;margin-left:6px}.buy{background:#103c2a;color:#43e09a}.watch{background:#473b16;color:#ffd166}.real{background:#0f3451;color:#72b7ff}.neutral{background:#26364d;color:#b8c6d9}
+.bar{height:7px;background:#24364f;border-radius:9px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:#66aaff}.notice{border-left:4px solid #66aaff}.water{border-left:4px solid #43e09a}.price{font-weight:900}.sig{display:inline-block;font-size:10px;margin:5px 4px 0 0;padding:4px 6px;border-radius:7px;background:#1a2b43}.up{color:#43e09a}.down{color:#ff9a9a}.flat{color:#ffd166}.source a,a.source{color:#66aaff;text-decoration:none}.intel{border-left:4px solid #a780ff}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><div class="app">
+<h2>INSTITUTIONAL ALPHA <span class="muted">V1.7.1</span></h2>
+<div class="tiny">Institutional Intelligence · cours automatisés + mouvements 13F réels · simulation uniquement</div>
+<div class="tabs">
+<button class="tab active" onclick="tab('radar',this)">🔥 Radar</button>
+<button class="tab" onclick="tab('intel',this)">🧠 Intelligence</button>
+<button class="tab" onclick="tab('port',this)">💼 Portefeuille</button>
+<button class="tab" onclick="tab('inst',this)">🏦 Institutions</button>
+<button class="tab" onclick="tab('markets',this)">🌍 Marchés</button>
+<button class="tab" onclick="tab('data',this)">📡 Données</button>
+</div>
+
+<section id="radar" class="page on">
+<div class="hero"><div class="tiny">CAPITAL SIMULÉ</div><div class="value">10 000 €</div>
+<div id="marketStatus" class="yellow">Chargement…</div><div id="lastUpdate" class="tiny">—</div>
+<button class="action" onclick="run()">▶ RECALCULER LE PORTEFEUILLE V1.7.1</button></div>
+<div class="grid"><div class="card"><div class="tiny">COURS DISPONIBLES</div><div id="realCount" class="metric">—</div></div><div class="card"><div class="tiny">13F RÉELS</div><div id="instStatus" class="metric">—</div></div><div class="card"><div class="tiny">ACHATS SIMULÉS</div><div id="buyCount" class="metric">—</div></div></div>
+<div class="section">🔥 Classement Institutional Alpha</div><div id="top"></div>
+</section>
+
+<section id="intel" class="page">
+<div class="section">🧠 Institutional Intelligence</div>
+<div class="card intel"><b>Ce score n'utilise plus de “3/3” inventé.</b><div class="meta" style="margin-top:6px">Pour les titres éligibles au Form 13F, le moteur compare les actions déclarées au dernier trimestre avec le trimestre précédent chez BlackRock, Vanguard et State Street. ↑ = accumulation, → = stable, ↓ = réduction, NEW = nouvelle position, EXIT = sortie déclarée.</div></div>
+<div class="section">Signaux action par action</div><div id="intelList"></div>
+<div class="card notice"><b>Limite importante :</b> le Form 13F couvre les titres reportables aux États-Unis. L'absence de signal sur Tencent, BYD, CATL, Veolia ou Schneider ne signifie donc pas qu'une institution ne les détient pas mondialement.</div>
+</section>
+
+<section id="port" class="page"><div class="section">💼 Allocation virtuelle</div><div id="hold"></div><div class="card notice">Simulation éducative : aucun ordre réel, aucun conseil financier personnalisé.</div></section>
+
+<section id="inst" class="page"><div class="section">🏦 Institutions et snapshots</div><div id="instList"></div>
+<div class="section">🇳🇴 NBIM / Oljefondet</div><div id="nbim"></div></section>
+
+<section id="markets" class="page"><div class="filters"><button class="filter active" onclick="market('all',this)">Tous</button><button class="filter" onclick="market('Occident',this)">Occident</button><button class="filter" onclick="market('Asie',this)">Asie</button><button class="filter" onclick="market('Eau',this)">🌊 Eau</button></div><div id="marketList"></div></section>
+
+<section id="data" class="page"><div class="section">📡 État des données</div>
+<div class="grid"><div class="card"><div class="tiny">MARCHÉ</div><div id="dataMarket" class="metric">—</div></div><div class="card"><div class="tiny">INSTITUTIONNEL</div><div id="dataInst" class="metric">—</div></div><div class="card"><div class="tiny">ORDRES RÉELS</div><div class="metric">0</div></div></div>
+<div class="section">Méthode V1.7.1</div><div class="card notice">Marché : Yahoo Finance via yfinance, mise à jour horaire. Institutionnel : SEC EDGAR Form 13F, mise à jour quotidienne et comparaison du dernier trimestre avec le précédent. NBIM : données macro officielles semestrielles, sans inventer de mouvement action par action.</div>
+<div class="section">Score</div><div class="card notice">Le score combine : 30% signal institutionnel réel (ou neutre si hors périmètre 13F), 20% momentum, 15% pertinence mondiale, 15% qualité, 10% thème et 10% risque inversé.</div>
+</section>
+</div>
+<script>
+let D;
+async function init(){D=await(await fetch('data.json?ts='+Date.now(),{cache:'no-store'})).json();render()}
+function instBase(x){return x.institutional_real_score==null?50:x.institutional_real_score}
+function score(x){let risk=100-x.risk,th=D.themes[x.theme]||75,m=x.momentum??50;return Math.round(.30*instBase(x)+.20*m+.15*x.global+.15*x.quality+.10*th+.10*risk)}
+function verdict(s){return s>=84?['ACHAT SIMULÉ','buy']:['SURVEILLER','watch']}
+function fmt(v,d=2){return v===null||v===undefined?'—':Number(v).toLocaleString('fr-FR',{maximumFractionDigits:d})}
+function priceText(x){return x.price==null?'Cours indisponible':`${fmt(x.price,2)} ${x.currency||''}`.trim()}
+function movLabel(m){return ({NEW:'NEW ↑',INCREASE:'↑ ACCUMULE',STABLE:'→ STABLE',HELD:'→ DÉTENU',REDUCE:'↓ RÉDUIT',EXIT:'EXIT ↓',ABSENT:'ABSENT'})[m]||'—'}
+function movClass(m){return ['NEW','INCREASE'].includes(m)?'up':['REDUCE','EXIT'].includes(m)?'down':'flat'}
+function sigs(x){let o=x.institutional_signals||{}, keys=['blackrock','vanguard','statestreet'];return keys.map(k=>{let v=o[k];if(!v)return '';let n=k==='blackrock'?'BR':k==='vanguard'?'VG':'SS';return `<span class="sig ${movClass(v.movement)}">${n} ${movLabel(v.movement)}${v.change_pct==null?'':' '+(v.change_pct>=0?'+':'')+fmt(v.change_pct,1)+'%'}</span>`}).join('')}
+function row(x,i){let s=score(x),v=verdict(s),d1=x.change_1d_pct,d30=x.change_30d_pct,inst=x.institutional_real_score;
+let ib=inst==null?`<span class="pill neutral">13F hors périmètre</span>`:`<span class="pill real">13F ${fmt(inst,0)}/100 · ${x.institutional_coverage}/${x.institutional_total}</span>`;
+return `<div class="row ${x.water?'water':''}"><b>${i+1}</b><div><div class="name">${x.name}<span class="pill ${v[1]}">${v[0]}</span>${ib}</div><div class="meta">${x.ticker} · ${x.region} · ${x.theme}</div><div class="meta"><span class="price">${priceText(x)}</span> · 1j ${d1==null?'—':(d1>=0?'+':'')+fmt(d1)+'%'} · 30j ${d30==null?'—':(d30>=0?'+':'')+fmt(d30)+'%'}</div>${sigs(x)}<div class="bar"><i style="width:${s}%"></i></div></div><b class="score">${s}</b></div>`}
+function intelCard(x){let o=x.institutional_signals||{};if(!x.sec13f_eligible)return `<div class="card" style="margin-bottom:8px"><b>${x.name}</b><div class="meta">Hors périmètre direct 13F pour le titre suivi (${x.ticker}). Aucune absence de détention mondiale n'est déduite.</div></div>`;
+let lines=['blackrock','vanguard','statestreet'].map(k=>{let v=o[k];let n=k==='blackrock'?'BlackRock':k==='vanguard'?'Vanguard':'State Street';if(!v)return `<div class="meta">${n} : données non chargées</div>`;return `<div><b>${n}</b> · <span class="${movClass(v.movement)}">${movLabel(v.movement)}</span> · ${fmt(v.shares,0)} actions déclarées${v.change_pct==null?'':' · '+(v.change_pct>=0?'+':'')+fmt(v.change_pct,2)+'%'}</div>`}).join('');
+return `<div class="card intel" style="margin-bottom:8px"><b>${x.name} — score institutionnel réel ${fmt(x.institutional_real_score,0)}/100</b><div class="meta">Période : ${x.institutional_period||'—'} · couverture ${x.institutional_coverage}/${x.institutional_total}</div><div style="margin-top:8px;line-height:1.8">${lines}</div></div>`}
+function render(){
+let a=[...D.stocks].sort((a,b)=>score(b)-score(a));top.innerHTML=a.map(row).join('');marketList.innerHTML=a.map(row).join('');intelList.innerHTML=a.map(intelCard).join('');
+let rc=D.stocks.filter(x=>x.price!=null).length;realCount.textContent=`${rc}/${D.stocks.length}`;instStatus.textContent=D.institutional_data_status==='ok'?'LIVE':'PARTIEL';dataMarket.textContent=D.market_data_status||'—';dataInst.textContent=D.institutional_data_status||'—';
+marketStatus.textContent=rc?`Données marché : ${rc}/${D.stocks.length}`:'En attente des cours';marketStatus.className=rc?'green':'yellow';lastUpdate.textContent=`Marché UTC : ${D.last_market_update_utc||'—'} · Institutionnel UTC : ${D.last_institutional_update_utc||'—'}`;
+instList.innerHTML=D.managers.map(m=>{let r=(D.institutional_manager_results||{})[m.id]||{};return `<div class="card" style="margin-bottom:8px"><b>${m.name}</b><div class="meta">${m.source} · ${m.cadence}</div><div>Dernier trimestre : <b>${r.current_period||'en attente'}</b> · précédent : ${r.previous_period||'—'}</div></div>`}).join('');
+let n=D.nbim;nbim.innerHTML=`<div class="card"><b>${n.name}</b><div class="meta">Snapshot ${n.as_of} · publié ${n.published}</div><div style="margin-top:6px">${fmt(n.fund_value_nok_bn,0)} Md NOK · S1 2026 +${fmt(n.return_h1_2026_pct)}% · ${fmt(n.equity_pct,1)}% actions · ≈ ${fmt(n.companies_approx,0)} sociétés</div><div class="meta" style="margin-top:6px">${n.note}</div><a class="source" href="${n.source_url}" target="_blank">source officielle NBIM ↗</a></div>`;
+}
+function run(){let a=[...D.stocks].sort((a,b)=>score(b)-score(a)).filter(x=>score(x)>=84).slice(0,6),w=[.20,.17,.15,.13,.11,.08];buyCount.textContent=a.length;hold.innerHTML=a.map((x,i)=>{let alloc=10000*w[i],u=x.price?alloc/x.price:null;return `<div class="row"><b>•</b><div><div class="name">${x.name}</div><div class="meta">score ${score(x)} · allocation ${Math.round(w[i]*100)}% · ${u?fmt(u,3)+' titres virtuels':'cours indisponible'}</div></div><b>${fmt(alloc,0)} €</b></div>`}).join('')||'<div class="card">Aucune sélection.</div>'}
+function market(m,b){let a=D.stocks.filter(x=>m==='all'||(m==='Eau'?x.water:x.region===m)).sort((a,b)=>score(b)-score(a));marketList.innerHTML=a.map(row).join('');document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+function tab(id,b){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+init();
+</script></body></html>
